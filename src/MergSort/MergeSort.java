@@ -2,7 +2,7 @@ package MergSort;
 
 public class MergeSort {
 
-    public static int[] merge2Arr(int[] arr1, int[] arr2) {
+    public static int[] mergeAscending(int[] arr1, int[] arr2) {
         int len1 = arr1.length;
         int len2 = arr2.length;
         int [] res = new int [len1 + len2];
@@ -19,7 +19,7 @@ public class MergeSort {
         return res;
     }
 
-    public static int[] merge2Descending(int[] arr1, int[] arr2) {
+    public static int[] mergeDescending(int[] arr1, int[] arr2) {
         int len1 = arr1.length;
         int len2 = arr2.length;
         int [] res = new int [len1 + len2];
