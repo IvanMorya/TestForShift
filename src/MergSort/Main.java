@@ -3,18 +3,18 @@ package MergSort;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
+        Scanner scanner = new Scanner(reader);
         String sortMode = null;
         String dataType = null;
         String outFileName = null;
         String allFileName = null;
         String inFileName1 = null;
         String inFileName2 = null;
-
         try {
             System.out.println(" Установите режим сортировки (-a или -d), необязательный, по умолчанию сортируем по возрастанию");
             sortMode = reader.readLine();
@@ -23,20 +23,17 @@ public class Main {
             System.out.println("Укажите имя выходного файла, обязательное.");
             outFileName = reader.readLine();
             System.out.println("Укажите имена входных файлов, не менее одного.");
-            allFileName = reader.readLine();
+            while (scanner.hasNextLine()) {
+                allFileName = reader.readLine() + "&";
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-        int[] arr1 = {0, 3, 5};
-        int[] arr2 = {1, 2, 4, 8};
-        int[] arrResult = new int[arr2.length + arr1.length];
-
-        arrResult = MergeSort.mergeDescending(arr1, arr2);
-        for (int a : arrResult) {
-            System.out.print(a + ", ");
+        finally {
+            scanner.close();
+            reader.close();
         }
+
+
     }
 }
